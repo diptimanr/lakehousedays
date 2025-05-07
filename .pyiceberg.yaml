@@ -1,0 +1,4 @@
+catalog:
+ pyarrowtest:
+   uri: sqlite:///pyiceberg_catalog/pyarrow_catalog.db
+   warehouse: file:////Users/diptimanraichaudhuri/testing_space/lakehouse_days/dw1
