@@ -1,2 +1,2 @@
 # lakehousedays
-Code repof or lakehousedays
+Code repo for lakehousedays
