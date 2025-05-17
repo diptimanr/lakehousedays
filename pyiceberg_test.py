@@ -76,3 +76,30 @@ print("\n")
 pos_table.delete(delete_filter=EqualTo('device_make', 'INGENICO'))
 print("\n After Delete")
 print(pos_table.scan().to_pandas())
+
+# DuckDB
+con = pos_table.scan().to_duckdb(table_name='all_sales')
+duck_result = con.execute(""" 
+    SELECT pos_id, total_amount, device_make
+    FROM all_sales
+""").fetchall()
+print("\nDuckDB SELECT * ==>\n")
+print(duck_result)
+
+# PyIceberg inspection API
+import pprint
+
+# Inspect Snapshots
+# print("\nInspection API ==> SNAPSHOTS()")
+# print("\n*****************************")
+# pprint.pp(pos_table.inspect.snapshots())
+
+# Inspect Partitions
+# print("\nInspection API ==> PARTITIONS()()")
+# print("\n*****************************")
+# pprint.pp(pos_table.inspect.partitions())
+
+# Inspect Files
+# print("\nInspection API ==> FILES()")
+# print("\n*****************************")
+# pprint.pp(pos_table.inspect.files())
